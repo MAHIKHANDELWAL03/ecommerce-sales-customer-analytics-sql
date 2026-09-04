@@ -112,3 +112,20 @@ ecommerce-sales-customer-analytics-sql/
 │
 ├── ECommerce_Sales_Customer_Analytics.sql
 └── README.md
+## Project Screenshots
+
+### Overall Business Performance
+
+![Overall Performance](./Screenshot%202026-09-05%20001944.png)
+
+### Monthly Sales Performance
+
+![Monthly Sales](./Screenshot%202026-09-05%20002510.png)
+
+### Top Products
+
+![Top Products](./Screenshot%202026-09-05%20002644.png)
+
+### Customer Analysis
+
+![Customer Analysis](./Screenshot%202026-09-05%20002759.png)
