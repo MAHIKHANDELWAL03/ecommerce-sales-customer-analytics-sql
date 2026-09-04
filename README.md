@@ -32,3 +32,18 @@ The analysis was designed to answer the following business questions:
 5. What percentage of customers are one-time versus repeat customers?
 6. Which countries generate the highest revenue?
 7. How does monthly revenue growth change over time?
+## SQL Techniques Used
+
+The project applies the following SQL concepts:
+
+- Data cleaning and validation
+- Aggregate functions: SUM, COUNT, AVG, MIN, MAX
+- GROUP BY and HAVING
+- CASE WHEN statements
+- Common Table Expressions (CTEs)
+- Window functions
+- RANK() for customer ranking
+- LAG() for month-over-month analysis
+- DISTINCT counts for orders and customers
+- Date functions for monthly sales analysis
+- NULL handling and conditional filtering
