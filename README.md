@@ -21,3 +21,14 @@ The dataset includes information such as:
 - Country
 
 The raw dataset was imported into SQL Server and analyzed using a cleaned analytical table.
+## Business Questions
+
+The analysis was designed to answer the following business questions:
+
+1. What is the overall revenue, order volume, customer count, and average order value?
+2. How does revenue change month over month?
+3. Which products generate the highest revenue?
+4. Which customers contribute the most revenue?
+5. What percentage of customers are one-time versus repeat customers?
+6. Which countries generate the highest revenue?
+7. How does monthly revenue growth change over time?
