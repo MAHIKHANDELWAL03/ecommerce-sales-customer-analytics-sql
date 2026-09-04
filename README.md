@@ -107,11 +107,14 @@ Key preparation steps included:
 
 ## Project Structure
 
-```text
+```markdown
 ecommerce-sales-customer-analytics-sql/
 │
 ├── ECommerce_Sales_Customer_Analytics.sql
 └── README.md
+```
+
+
 ## Project Screenshots
 
 ### Overall Business Performance
