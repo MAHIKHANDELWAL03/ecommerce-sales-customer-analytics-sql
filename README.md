@@ -132,3 +132,6 @@ ecommerce-sales-customer-analytics-sql/
 ### Customer Analysis
 
 ![Customer Analysis](./Screenshot%202026-09-05%20002759.png)
+## Key Takeaway
+
+This project demonstrates how SQL can be used to transform raw transactional data into actionable business insights. The analysis combines data cleaning, exploratory analysis, customer analytics, product performance analysis, and time-based reporting to support business decision-making.
