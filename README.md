@@ -47,3 +47,18 @@ The project applies the following SQL concepts:
 - DISTINCT counts for orders and customers
 - Date functions for monthly sales analysis
 - NULL handling and conditional filtering
+## Data Cleaning & Preparation
+
+The raw dataset contained 541,909 transaction records. Data quality checks were performed before creating the analytical table.
+
+Key preparation steps included:
+
+- Checked missing values across important columns.
+- Identified 9,288 cancelled transactions using invoice numbers beginning with "C".
+- Identified 2 records with negative unit prices and excluded them from sales analysis.
+- Identified 1,336 negative-quantity records with zero unit price and excluded them from standard sales analysis.
+- Investigated an exceptional quantity value of ±80,995 and excluded the associated records from standard sales analysis.
+- Converted invoice dates into a usable datetime format using `TRY_CONVERT()`.
+- Created a cleaned analytical table named `CleanOnlineRetail`.
+- Calculated transaction-level revenue using `Quantity × UnitPrice`.
+- Retained the raw table separately to preserve the original dataset.
