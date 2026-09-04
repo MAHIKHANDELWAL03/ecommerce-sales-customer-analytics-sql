@@ -62,3 +62,34 @@ Key preparation steps included:
 - Created a cleaned analytical table named `CleanOnlineRetail`.
 - Calculated transaction-level revenue using `Quantity × UnitPrice`.
 - Retained the raw table separately to preserve the original dataset.
+## Key Results & Insights
+
+### Overall Performance
+
+- Total Revenue: £10.50M
+- Total Orders: 20,725
+- Total Units Sold: 5.58M
+- Identified Customers: 4,339
+- Average Order Value (AOV): £506.55
+
+### Customer Insights
+
+- 65.55% of identified customers were repeat customers, while 34.45% were one-time customers.
+- The top 10 customers contributed 16.43% of identifiable-customer revenue.
+- Customer-level analysis helped identify high-value customers based on total spending and order frequency.
+
+### Product Insights
+
+- The highest-revenue product generated approximately £174K in sales.
+- Product-level analysis was used to identify products with strong revenue and order performance.
+
+### Geographic Insights
+
+- The United Kingdom generated the highest revenue among countries with identified customer records, contributing approximately £7.14M.
+- International markets such as the Netherlands, Ireland, Germany, France, and Australia also showed significant revenue contribution.
+
+### Sales Trend Insights
+
+- November 2011 recorded the highest monthly revenue at approximately £1.51M.
+- September 2011 also showed strong growth, with revenue increasing by approximately 39.45% compared with the previous month.
+- December 2011 experienced a significant decline compared with November.
