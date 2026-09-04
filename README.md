@@ -91,5 +91,18 @@ Key preparation steps included:
 ### Sales Trend Insights
 
 - November 2011 recorded the highest monthly revenue at approximately £1.51M.
+  ## Tools & Technologies
+
+- SQL Server
+- T-SQL
+- SQL Server Management Studio (SSMS)
+
+## Project Structure
+
+```text
+ecommerce-sales-customer-analytics-sql/
+│
+├── ECommerce_Sales_Customer_Analytics.sql
+└── README.md
 - September 2011 also showed strong growth, with revenue increasing by approximately 39.45% compared with the previous month.
 - December 2011 experienced a significant decline compared with November.
