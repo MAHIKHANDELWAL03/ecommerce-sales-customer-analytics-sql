@@ -1,137 +1,136 @@
-# E-commerce Sales & Customer Analytics | SQL
+# E-commerce Sales & Customer Analytics | SQL Server
 
-## Project Overview
+A SQL Server analytics project using the Online Retail dataset (541,909 transaction records) to examine revenue, order activity, customer behavior, product performance, geographic trends, and monthly sales movement.
 
-This project analyzes e-commerce sales data using SQL Server to evaluate sales performance, customer behavior, product performance, and geographic trends.
+The project includes data-quality checks, a cleaned analytical table, business-focused T-SQL queries, and screenshots of selected query results.
 
-The analysis focuses on identifying key business metrics and patterns that can support data-driven decision-making.
+## Project at a glance
 
-## Dataset
+- **Dataset:** Online Retail — 541,909 raw records
+- **Database:** SQL Server
+- **Tools:** SQL Server Management Studio (SSMS), T-SQL
+- **Main source table:** `dbo.OnlineRetail`
+- **Clean analytical table:** `dbo.CleanOnlineRetail`
 
-The project uses the Online Retail Dataset containing 541,909 transaction records from an e-commerce retailer.
+## Business questions
 
-The dataset includes information such as:
-
-- Invoice number
-- Product code
-- Product description
-- Quantity
-- Invoice date
-- Unit price
-- Customer ID
-- Country
-
-The raw dataset was imported into SQL Server and analyzed using a cleaned analytical table.
-
-## Business Questions
-
-The analysis was designed to answer the following business questions:
-
-1. What is the overall revenue, order volume, customer count, and average order value?
+1. What are total revenue, order volume, customer count, units sold, and average order value?
 2. How does revenue change month over month?
 3. Which products generate the highest revenue?
 4. Which customers contribute the most revenue?
-5. What percentage of customers are one-time versus repeat customers?
-6. Which countries generate the highest revenue?
+5. What proportion of identified customers are one-time versus repeat customers?
+6. Which countries generate the most revenue?
 7. How does monthly revenue growth change over time?
 
-## SQL Techniques Used
+## Data preparation
 
-The project applies the following SQL concepts:
+The raw dataset was reviewed before creating the cleaned analytical table.
 
-- Data cleaning and validation
-- Aggregate functions: SUM, COUNT, AVG, MIN, MAX
-- GROUP BY and HAVING
-- CASE WHEN statements
+Preparation and validation steps included:
+
+- Checked missing values in important fields.
+- Identified 9,288 cancelled transactions using invoice numbers beginning with `C`.
+- Identified and excluded 2 records with negative unit prices from standard sales analysis.
+- Identified and excluded 1,336 negative-quantity records with zero unit price.
+- Excluded exceptional quantity records where the absolute quantity was 80,995 or greater.
+- Converted invoice dates using `TRY_CONVERT()`.
+- Created `dbo.CleanOnlineRetail` while retaining the original table.
+- Calculated transaction revenue as `Quantity × UnitPrice`.
+
+The SQL script creates `dbo.CleanOnlineRetail` only when that table does not already exist. If you change or reload the raw data and want to rebuild the cleaned table, remove the existing cleaned table first, then rerun the cleaning section.
+
+## SQL concepts demonstrated
+
+- Data-quality checks and conditional filtering
+- Aggregate functions: `SUM`, `COUNT`, `AVG`, `MIN`, and `MAX`
+- `GROUP BY` and `HAVING`
+- `CASE WHEN` expressions
 - Common Table Expressions (CTEs)
 - Window functions
-- RANK() for customer ranking
-- LAG() for month-over-month analysis
-- DISTINCT counts for orders and customers
-- Date functions for monthly sales analysis
-- NULL handling and conditional filtering
+- `RANK()` for customer ranking
+- `LAG()` for month-over-month comparison
+- Date functions and monthly aggregation
+- `NULL` handling and `NULLIF()`
 
-## Data Cleaning & Preparation
+## Selected findings
 
-The raw dataset contained 541,909 transaction records. Data quality checks were performed before creating the analytical table.
+The results documented in this project include:
 
-Key preparation steps included:
+### Overall performance
 
-- Checked missing values across important columns.
-- Identified 9,288 cancelled transactions using invoice numbers beginning with "C".
-- Identified 2 records with negative unit prices and excluded them from sales analysis.
-- Identified 1,336 negative-quantity records with zero unit price and excluded them from standard sales analysis.
-- Investigated an exceptional quantity value of ±80,995 and excluded the associated records from standard sales analysis.
-- Converted invoice dates into a usable datetime format using `TRY_CONVERT()`.
-- Created a cleaned analytical table named `CleanOnlineRetail`.
-- Calculated transaction-level revenue using `Quantity × UnitPrice`.
-- Retained the raw table separately to preserve the original dataset.
+| Metric | Result |
+|---|---:|
+| Total revenue | £10.50M |
+| Total orders | 20,725 |
+| Total units sold | 5.58M |
+| Identified customers | 4,339 |
+| Average order value | £506.55 |
 
-## Key Results & Insights
+### Customer insights
 
-### Overall Performance
-
-- Total Revenue: £10.50M
-- Total Orders: 20,725
-- Total Units Sold: 5.58M
-- Identified Customers: 4,339
-- Average Order Value (AOV): £506.55
-
-### Customer Insights
-
-- 65.55% of identified customers were repeat customers, while 34.45% were one-time customers.
+- 65.55% of identified customers were repeat customers; 34.45% were one-time customers.
 - The top 10 customers contributed 16.43% of identifiable-customer revenue.
-- Customer-level analysis helped identify high-value customers based on total spending and order frequency.
+- Customer-level queries rank customers by revenue and examine order frequency.
 
-### Product Insights
+### Product and geographic insights
 
-- The highest-revenue product generated approximately £174K in sales.
-- Product-level analysis was used to identify products with strong revenue and order performance.
+- The highest-revenue product generated approximately £174K.
+- The United Kingdom generated approximately £7.14M among countries with identified customer records.
 
-### Geographic Insights
-
-- The United Kingdom generated the highest revenue among countries with identified customer records, contributing approximately £7.14M.
-- International markets such as the Netherlands, Ireland, Germany, France, and Australia also showed significant revenue contribution.
-
-### Sales Trend Insights
+### Sales trends
 
 - November 2011 recorded the highest monthly revenue at approximately £1.51M.
-- September 2011 showed strong growth, with revenue increasing by approximately 39.45% compared with the previous month.
-- December 2011 experienced a significant decline compared with November.
+- September 2011 revenue increased by approximately 39.45% compared with the previous month.
+- December 2011 recorded a substantial decline compared with November.
 
-## Tools & Technologies
+## How to run the project
 
-- SQL Server
-- T-SQL
+### Prerequisites
+
+- Microsoft SQL Server
 - SQL Server Management Studio (SSMS)
+- The Online Retail dataset loaded into a database named `ECommerce_Analytics` as `dbo.OnlineRetail`, with the columns referenced in the script
 
-## Project Structure
+### Steps
 
-```markdown
+1. Create or open the `ECommerce_Analytics` database.
+2. Import the Online Retail source data into `dbo.OnlineRetail`.
+3. Open `ECommerce_Sales_Customer_Analytics.sql` in SSMS.
+4. Execute the script sections in order.
+5. Review the result sets for overall performance, monthly sales, products, customers, customer types, geographic performance, and monthly revenue growth.
+
+## Repository contents
+
+```text
 ecommerce-sales-customer-analytics-sql/
-│
 ├── ECommerce_Sales_Customer_Analytics.sql
-└── README.md
+├── README.md
+├── Screenshot 2026-09-05 001944.png
+├── Screenshot 2026-09-05 002510.png
+├── Screenshot 2026-09-05 002644.png
+└── Screenshot 2026-09-05 002759.png
 ```
 
+## Project screenshots
 
-## Project Screenshots
-
-### Overall Business Performance
+### Overall business performance
 
 ![Overall Performance](./Screenshot%202026-09-05%20001944.png)
 
-### Monthly Sales Performance
+### Monthly sales performance
 
 ![Monthly Sales](./Screenshot%202026-09-05%20002510.png)
 
-### Top Products
+### Top products
 
 ![Top Products](./Screenshot%202026-09-05%20002644.png)
 
-### Customer Analysis
+### Customer analysis
 
 ![Customer Analysis](./Screenshot%202026-09-05%20002759.png)
-## Key Takeaway
 
-This project demonstrates how SQL can be used to transform raw transactional data into actionable business insights. The analysis combines data cleaning, exploratory analysis, customer analytics, product performance analysis, and time-based reporting to support business decision-making.
+## Key takeaway
+
+This project demonstrates how SQL Server can be used to prepare transactional data, answer business questions, calculate performance metrics, and communicate findings through structured query results.
+
+**Author:** Mahi Khandelwal
